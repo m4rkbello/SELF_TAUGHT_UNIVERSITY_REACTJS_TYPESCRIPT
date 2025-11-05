@@ -1,2 +1,5 @@
 1.FIRST CREATE A BUNDLER USING VITE 
-->npm create vite@lastest .
+->npm create vite@lastest react-typescript
+
+2.INSTALL THE PACKAGES.JSON AS
+->npm i
