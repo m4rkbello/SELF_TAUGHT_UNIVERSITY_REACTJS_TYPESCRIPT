@@ -10,9 +10,15 @@ const Person = (props: Person) => {
 
     //useState 
     const [isShowInfo, setShowInfo] = useState<boolean>(false);
+    const [dataInput, setDataInput] =useState<string | null>(null);
+
 
     const toggleInfo =()=>{
         setShowInfo((prev) => !prev);
+    };
+
+    const handleChangeData = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setDataInput(event.target.value);
     };
 
     return (
@@ -29,8 +35,16 @@ const Person = (props: Person) => {
                 </>
                 )     
             }
+     
+            {" "}
+            {props.name} Data: {!dataInput ? "ALAW UTSBO" : dataInput}
+                   <br />
+             <br />
 
             <button onClick={toggleInfo} >Toggle Info</button>
+            <br />
+            <br />
+            <input onChange={handleChangeData} />
         </div>    
     );
 };
