@@ -1,5 +1,6 @@
 import "./App.css";
 import User from "./Person";
+import { UserProvider } from "./UserContextProvider";
 //A DATATYPE STRING
 let paldo: string = "OHAHAY!";
 
@@ -13,9 +14,9 @@ let isMarried: boolean = false;
 let paldos: number[] = [1,2,3,4,5];
 
 function App() {
-  return <>
+  return <UserProvider>
     <User name={"MARK BELLO"} age={25} isMarried={false} />
-  </>;
+  </UserProvider>;
 }
 
 
