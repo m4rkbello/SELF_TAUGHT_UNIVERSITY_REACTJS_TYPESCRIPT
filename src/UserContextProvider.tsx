@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export interface User {
     name: string,
@@ -23,7 +23,7 @@ const contextInitialValues = {
 }
 
 //BRIDGE
-const UserContext = createContext<UserContextType>(contextInitialValues);
+export const UserContext = createContext<UserContextType>(contextInitialValues);
 
 
 interface Props {
@@ -31,5 +31,19 @@ interface Props {
 }
 
 export const UserProvider = (props: Props) => {
-  return <>{props.children}</>
-}
+
+
+  const [users, setUsers] = useState<User[] | null>(null)
+
+  useEffect(() => {
+    setUsers([{name: "PALDO", age: 26, isMarried: false}]);
+  }, []);
+
+  const addUser = (user: User) => null;
+  const updateUser = (id: string) => null;
+    const deleteUser = (id: string) => null;
+
+
+
+  return <UserContext.Provider value={{users, addUser, updateUser, deleteUser}}>{props.children}</UserContext.Provider>
+};
