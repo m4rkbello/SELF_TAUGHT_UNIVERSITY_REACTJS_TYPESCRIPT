@@ -1,6 +1,8 @@
 import "./App.css";
 import User from "./Person";
+import { Countries } from "./Person";
 import { UserProvider } from "./UserContextProvider";
+
 //A DATATYPE STRING
 let paldo: string = "OHAHAY!";
 
@@ -11,13 +13,19 @@ let age: number = 26;
 let isMarried: boolean = false;
 
 //SET OF AN ARRAY
-let paldos: number[] = [1,2,3,4,5];
+let paldos: number[] = [1, 2, 3, 4, 5];
 
 function App() {
-  return <UserProvider>
-    <User name={"MARK BELLO"} age={25} isMarried={false} />
-  </UserProvider>;
+  return (
+    <UserProvider>
+      <User
+        name="MARK BELLO"
+        age={25}
+        isMarried={false}
+        Country={Countries.Philippines}
+      />
+    </UserProvider>
+  );
 }
-
 
 export default App;

@@ -1,49 +1,52 @@
 import { createContext, useEffect, useState } from "react";
 
 export interface User {
-    name: string,
-    age: number,
-    isMarried: boolean,
+    name: string;
+    age: number;
+    isMarried: boolean;
 }
 
-//
 interface UserContextType {
-  users: User[] | null;
-  addUser: (user: User) => void;
-  updateUser: (id: string) => void;
-  deleteUser: (id: string) => void;
+    users: User[] | null;
+    addUser: (user: User) => void;
+    updateUser: (id: string) => void;
+    deleteUser: (id: string) => void;
 }
 
-//Initializer
-const contextInitialValues = {
-  users: null,
-  addUser: () => null,
-  updateUser: () => null,
-  deleteUser: () => null,
-}
+// Default values
+const contextInitialValues: UserContextType = {
+    users: null,
+    addUser: () => null,
+    updateUser: () => null,
+    deleteUser: () => null,
+};
 
-//BRIDGE
+// Create Context
 export const UserContext = createContext<UserContextType>(contextInitialValues);
 
-
 interface Props {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }
 
-export const UserProvider = (props: Props) => {
+export const UserProvider = ({ children }: Props) => {
+    const [users, setUsers] = useState<User[] | null>(null);
 
+    // Initialize fake data
+    useEffect(() => {
+        setUsers([{ name: "PALDO", age: 26, isMarried: false }]);
+    }, []);
 
-  const [users, setUsers] = useState<User[] | null>(null)
+    const addUser = (user: User) => {
+        if (users) setUsers([...users, user]);
+    };
 
-  useEffect(() => {
-    setUsers([{name: "PALDO", age: 26, isMarried: false}]);
-  }, []);
+    const updateUser = (id: string) => null;
 
-  const addUser = (user: User) => null;
-  const updateUser = (id: string) => null;
     const deleteUser = (id: string) => null;
 
-
-
-  return <UserContext.Provider value={{users, addUser, updateUser, deleteUser}}>{props.children}</UserContext.Provider>
+    return (
+        <UserContext.Provider value={{ users, addUser, updateUser, deleteUser }}>
+            {children}
+        </UserContext.Provider>
+    );
 };
