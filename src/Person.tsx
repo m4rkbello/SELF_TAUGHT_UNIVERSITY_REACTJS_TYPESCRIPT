@@ -1,12 +1,7 @@
 import { useState } from "react";
 
-interface Person {
-    name: string,
-    age: number,
-    isMarried: boolean,
-}
 
-const Person = (props: Person) => {
+const User = (props: Props) => {
 
     //useState 
     const [isShowInfo, setShowInfo] = useState<boolean>(false);
@@ -30,7 +25,7 @@ const Person = (props: Person) => {
                         <br />
                         Age: {props.age}
                         <br />
-                        This person is {props.isMarried ? "MINYO" : "LAON"} 
+                        This User is {props.isMarried ? "MINYO" : "LAON"} 
                         <br />
                     </p>
                 </>
@@ -51,5 +46,5 @@ const Person = (props: Person) => {
     );
 };
 
-export default Person;
+export default User;
 

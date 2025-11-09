@@ -1,5 +1,5 @@
 import "./App.css";
-import Person from "./Person";
+import User from "./Person";
 //A DATATYPE STRING
 let paldo: string = "OHAHAY!";
 
@@ -14,7 +14,7 @@ let paldos: number[] = [1,2,3,4,5];
 
 function App() {
   return <>
-    <Person name={"MARK BELLO"} age={25} isMarried={false} />
+    <User name={"MARK BELLO"} age={25} isMarried={false} />
   </>;
 }
 
