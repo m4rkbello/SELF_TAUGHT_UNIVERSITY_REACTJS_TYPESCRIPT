@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import {UserContext} from './UserContextProvider';
 
+export interface Props {
+    name: string,
+    age: number,
+    isMarried: boolean,
+}
 
 const User = (props: Props) => {
 
     //useState 
     const [isShowInfo, setShowInfo] = useState<boolean>(false);
     const [dataInput, setDataInput] =useState<string | null>(null);
-
 
     const toggleInfo =()=>{
         setShowInfo((prev) => !prev);
@@ -15,6 +20,8 @@ const User = (props: Props) => {
     const handleChangeData = (event: React.ChangeEvent<HTMLInputElement>) => {
         setDataInput(event.target.value);
     };
+
+    // const {users, addUser, } = useContext(UserContext);
 
     return (
         <div>
