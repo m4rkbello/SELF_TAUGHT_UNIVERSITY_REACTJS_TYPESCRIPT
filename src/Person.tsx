@@ -31,12 +31,14 @@ const Person = (props: Person) => {
                         Age: {props.age}
                         <br />
                         This person is {props.isMarried ? "MINYO" : "LAON"} 
+                        <br />
                     </p>
                 </>
                 )     
             }
      
             {" "}
+            <br />
             {props.name} Data: {!dataInput ? "ALAW UTSBO" : dataInput}
                    <br />
              <br />
